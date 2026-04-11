@@ -1,0 +1,16 @@
+<nav class="hx-navbar">
+  <div class="hx-navbar__inner">
+    <a class="hx-navbar__brand" href="{{ pathto(master_doc) }}">
+      {%- if theme_navbar_logo %}
+        <img src="{{ pathto('_static/' ~ theme_navbar_logo, 1) }}" alt="logo">
+      {%- endif %}
+      <span>{{ theme_navbar_title or project }}</span>
+    </a>
+    <div class="hx-navbar__actions">
+      {%- if theme_github_url %}
+        <a class="hx-navbar__github" href="{{ theme_github_url }}" aria-label="GitHub">GitHub</a>
+      {%- endif %}
+      {%- include "sphinx_hextra/partials/theme-toggle.html" %}
+    </div>
+  </div>
+</nav>

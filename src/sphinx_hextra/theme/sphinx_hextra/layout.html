@@ -1,6 +1,40 @@
-{%- extends "basic/layout.html" %}
-
-{% block extrahead %}
-  {{ super() }}
-  <meta name="generator" content="sphinx-hextra {{ sphinx_hextra_version|default('') }}">
-{% endblock %}
+<!DOCTYPE html>
+<html lang="{{ language or 'en' }}" class="hx-html">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title|striptags|e }} — {{ project|e }}</title>
+  {%- block css %}
+    {%- for css in css_files %}
+      {%- if css is string %}
+        <link rel="stylesheet" href="{{ pathto(css, 1)|e }}" type="text/css">
+      {%- else %}
+        <link rel="stylesheet" href="{{ pathto(css.filename, 1)|e }}" type="text/css">
+      {%- endif %}
+    {%- endfor %}
+  {%- endblock %}
+  {%- block extrahead %}{% endblock %}
+</head>
+<body class="hx-body">
+  {%- include "sphinx_hextra/partials/navbar.html" %}
+  <div class="hx-shell">
+    {%- include "sphinx_hextra/partials/sidebar.html" %}
+    <main class="hx-main">
+      <article class="hx-content">
+        {% block body %}{% endblock %}
+      </article>
+      {%- include "sphinx_hextra/partials/toc.html" %}
+    </main>
+  </div>
+  {%- include "sphinx_hextra/partials/footer.html" %}
+  {%- block scripts %}
+    {%- for scriptfile in script_files %}
+      {%- if scriptfile is string %}
+        <script src="{{ pathto(scriptfile, 1)|e }}"></script>
+      {%- else %}
+        <script src="{{ pathto(scriptfile.filename, 1)|e }}"></script>
+      {%- endif %}
+    {%- endfor %}
+  {%- endblock %}
+</body>
+</html>
