@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    environment: release
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Rebuild CSS from source
+        run: |
+          npm ci
+          npm run build:css
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+      - name: Build wheel and sdist
+        run: uv build
+      - name: Verify wheel contains compiled CSS
+        run: |
+          python -m zipfile -l dist/*.whl | grep "sphinx-hextra.css"
+          python -m zipfile -l dist/*.whl | grep "sphinx-hextra-needs.css"
+      - name: Verify wheel excludes dev assets
+        run: |
+          if python -m zipfile -l dist/*.whl | grep -q "tailwind.config"; then
+            echo "dev asset leaked into wheel"
+            exit 1
+          fi
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
