@@ -45,6 +45,7 @@ class FeatureDirective(HextraDirective):
         "subtitle": directives.unchanged,
         "image": directives.uri,
         "link": directives.uri,
+        "style": directives.unchanged,
     }
 
     def run(self) -> list[nodes.Node]:
@@ -53,6 +54,7 @@ class FeatureDirective(HextraDirective):
             subtitle=self.options.get("subtitle", ""),
             image=self.options.get("image", ""),
             link=self.options.get("link", ""),
+            style=self.options.get("style", ""),
         )
         self.nested_parse(node)
         return [node]
@@ -85,17 +87,13 @@ def depart_feature_grid_html(self: Any, node: FeatureGridNode) -> None:
 
 
 def visit_feature_html(self: Any, node: FeatureNode) -> None:
-    image = (
-        f'<img class="hx-feature__image" src="{escape(node["image"])}" alt="">'
-        if node["image"] else ""
-    )
-    wrapper_open = (
-        f'<a class="hx-feature hx-feature--link" href="{escape(node["link"])}">'
-        if node["link"] else '<div class="hx-feature">'
-    )
+    style_attr = f' style="{escape(node["style"], quote=True)}"' if node["style"] else ""
+    tag = "a" if node["link"] else "div"
+    href_attr = f' href="{escape(node["link"])}"' if node["link"] else ""
+    cls = "hx-feature hx-feature--link" if node["link"] else "hx-feature"
     self.body.append(
-        f"{wrapper_open}"
-        f"{image}"
+        f'<{tag} class="{cls}"{href_attr}{style_attr}>'
+        f'<div class="hx-feature__text">'
         f'<h3 class="hx-feature__title">{escape(node["title"])}</h3>'
         f'<p class="hx-feature__subtitle">{escape(node["subtitle"])}</p>'
         f'<div class="hx-feature__body">'
@@ -103,8 +101,13 @@ def visit_feature_html(self: Any, node: FeatureNode) -> None:
 
 
 def depart_feature_html(self: Any, node: FeatureNode) -> None:
+    self.body.append("</div></div>")
+    if node["image"]:
+        self.body.append(
+            f'<img class="hx-feature__image" src="{escape(node["image"])}" alt="" aria-hidden="true">'
+        )
     close = "</a>" if node["link"] else "</div>"
-    self.body.append(f"</div>{close}")
+    self.body.append(close)
 
 
 def register(app: Any) -> None:

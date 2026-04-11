@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none">
+  <defs>
+    <linearGradient id="c1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <rect x="20" y="26" width="130" height="62" rx="8" fill="url(#c1)"/>
+  <circle cx="40" cy="57" r="10" fill="#fff" fill-opacity="0.9"/>
+  <text x="36" y="62" font-family="sans-serif" font-weight="700" font-size="13" fill="#f59e0b">!</text>
+  <rect x="58" y="46" width="80" height="5" rx="2" fill="#fff" fill-opacity="0.9"/>
+  <rect x="58" y="56" width="60" height="4" rx="2" fill="#fff" fill-opacity="0.7"/>
+  <rect x="58" y="64" width="70" height="4" rx="2" fill="#fff" fill-opacity="0.7"/>
+  <rect x="170" y="26" width="130" height="62" rx="8" fill="#a78bfa" fill-opacity="0.85"/>
+  <rect x="182" y="40" width="40" height="6" rx="2" fill="#fff" fill-opacity="0.95"/>
+  <rect x="228" y="40" width="40" height="6" rx="2" fill="#fff" fill-opacity="0.55"/>
+  <rect x="182" y="52" width="30" height="3" rx="1" fill="#fff" fill-opacity="0.55"/>
+  <rect x="182" y="60" width="100" height="20" rx="3" fill="#fff" fill-opacity="0.3"/>
+  <rect x="20" y="102" width="280" height="70" rx="8" fill="#34d399" fill-opacity="0.8"/>
+  <circle cx="36" cy="118" r="6" fill="#fff"/>
+  <text x="33" y="122" font-family="sans-serif" font-weight="700" font-size="9" fill="#34d399">1</text>
+  <rect x="50" y="115" width="70" height="5" rx="2" fill="#fff" fill-opacity="0.9"/>
+  <rect x="50" y="124" width="100" height="4" rx="2" fill="#fff" fill-opacity="0.65"/>
+  <circle cx="36" cy="140" r="6" fill="#fff"/>
+  <text x="33" y="144" font-family="sans-serif" font-weight="700" font-size="9" fill="#34d399">2</text>
+  <rect x="50" y="137" width="60" height="5" rx="2" fill="#fff" fill-opacity="0.9"/>
+  <rect x="50" y="146" width="120" height="4" rx="2" fill="#fff" fill-opacity="0.65"/>
+  <circle cx="36" cy="160" r="6" fill="#fff"/>
+  <text x="33" y="164" font-family="sans-serif" font-weight="700" font-size="9" fill="#34d399">3</text>
+  <rect x="50" y="157" width="80" height="5" rx="2" fill="#fff" fill-opacity="0.9"/>
+  <rect x="50" y="166" width="90" height="4" rx="2" fill="#fff" fill-opacity="0.65"/>
+</svg>

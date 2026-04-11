@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(uv sync:*)",
+      "Bash(uv run:*)",
+      "Bash(/opt/homebrew/bin/npm install:*)",
+      "Bash(/opt/homebrew/bin/npm run:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(uvx --from . --with pytest --with myst-parser --with beautifulsoup4 --with lxml pytest tests/integration/test_cards.py -x)",
+      "Bash(uvx --from . --with pytest --with myst-parser --with beautifulsoup4 --with lxml pytest tests/integration/test_cards.py)",
+      "Bash(uvx --refresh --from . --with pytest --with myst-parser --with beautifulsoup4 --with lxml pytest tests/integration/test_cards.py)",
+      "Bash(uvx:*)",
+      "Bash(python -m pytest tests/integration/test_tabs.py -xvs)",
+      "Bash(.venv/bin/python -m pytest tests/integration/test_tabs.py -xvs)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(python -m pytest tests/integration/ -q)",
+      "Bash(python -m pytest tests/ -q)",
+      "Bash(grep -o \"hx-callout[^{ ,:]*\" /Users/patdhlk/src/patdhlk/sphinx-hextra/src/sphinx_hextra/theme/sphinx_hextra/static/sphinx-hextra.css)",
+      "Bash(npm run:*)",
+      "Bash(python -c \"import yaml; yaml.safe_load\\(open\\('.github/workflows/ci.yml'\\)\\)\")",
+      "Bash(curl -fsSL https://raw.githubusercontent.com/imfing/hextra/main/LICENSE -o /Users/patdhlk/src/patdhlk/sphinx-hextra/licenses/HEXTRA-LICENSE)",
+      "Bash(uv build:*)",
+      "Bash(python -m zipfile -l /Users/patdhlk/src/patdhlk/sphinx-hextra/dist/sphinx_hextra-0.1.0.dev0-py3-none-any.whl)",
+      "Bash(rm -rf /tmp/hextra-check /tmp/hextra-site)",
+      "Bash(uv venv:*)",
+      "Bash(python -m zipfile -l dist/*.whl)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(open docs/_build/html/index.html)"
+    ]
+  }
+}

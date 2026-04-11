@@ -12,11 +12,26 @@
 
   .hx-feature-grid { @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10; }
   .hx-feature {
-    @apply rounded-xl border p-6 block no-underline;
+    @apply relative overflow-hidden rounded-2xl border block no-underline;
     border-color: var(--hx-border);
     color: var(--hx-fg);
+    min-height: 360px;
+    transition: transform 200ms ease, border-color 200ms ease;
   }
-  .hx-feature__title    { @apply text-xl font-semibold mb-2 mt-0; }
-  .hx-feature__subtitle { @apply text-sm opacity-70 mb-4; }
-  .hx-feature__image    { @apply w-full rounded-lg mb-4; }
+  .hx-feature:hover { border-color: var(--hx-accent); transform: translateY(-2px); }
+  .hx-feature__text {
+    @apply relative z-10 p-6 pb-4;
+  }
+  .hx-feature__title    { @apply text-2xl font-semibold mb-2 mt-0; }
+  .hx-feature__subtitle { @apply text-sm opacity-75 mb-0 mt-0; }
+  .hx-feature__body { display: none; }
+  .hx-feature__image {
+    @apply absolute left-0 right-0 bottom-0 w-full pointer-events-none;
+    margin: 0;
+    padding: 0 1rem;
+    max-height: 60%;
+    object-fit: contain;
+    object-position: bottom center;
+  }
+  html.dark .hx-feature__image { opacity: 0.9; }
 }
