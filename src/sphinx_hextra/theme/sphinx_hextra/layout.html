@@ -1,0 +1,6 @@
+{%- extends "basic/layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <meta name="generator" content="sphinx-hextra {{ sphinx_hextra_version|default('') }}">
+{% endblock %}

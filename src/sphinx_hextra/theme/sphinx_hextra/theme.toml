@@ -1,0 +1,11 @@
+[theme]
+inherit = "basic"
+stylesheets = ["sphinx-hextra.css"]
+pygments_style = { default = "friendly", dark = "monokai" }
+
+[options]
+navbar_title = ""
+navbar_logo = ""
+github_url = ""
+edit_page_url_template = ""
+show_toc = true
