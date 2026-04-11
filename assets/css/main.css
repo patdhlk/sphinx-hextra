@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --hx-bg: #ffffff;
+    --hx-fg: #1f2937;
+    --hx-border: #e5e7eb;
+    --hx-muted: #6b7280;
+    --hx-accent: #6366f1;
+  }
+
+  html.dark {
+    --hx-bg: #0b0f19;
+    --hx-fg: #e5e7eb;
+    --hx-border: #1f2937;
+    --hx-muted: #9ca3af;
+    --hx-accent: #818cf8;
+  }
+
+  body {
+    background: var(--hx-bg);
+    color: var(--hx-fg);
+    font-family: theme("fontFamily.sans");
+  }
+}

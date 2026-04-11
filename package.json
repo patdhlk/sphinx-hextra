@@ -1,0 +1,14 @@
+{
+  "name": "sphinx-hextra-build",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Build tooling for sphinx-hextra CSS assets. Not published.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/main.css -o ./src/sphinx_hextra/theme/sphinx_hextra/static/sphinx-hextra.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/main.css -o ./src/sphinx_hextra/theme/sphinx_hextra/static/sphinx-hextra.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/typography": "^0.5.10"
+  }
+}
