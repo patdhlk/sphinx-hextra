@@ -30,7 +30,8 @@
       "Bash(python -m zipfile -l dist/*.whl)",
       "Bash(git remote:*)",
       "Bash(git push:*)",
-      "Bash(open docs/_build/html/index.html)"
+      "Bash(open docs/_build/html/index.html)",
+      "Bash(uv add:*)"
     ]
   }
 }

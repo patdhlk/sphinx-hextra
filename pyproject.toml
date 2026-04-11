@@ -37,7 +37,7 @@ dev = [
     "pytest>=8",
     "pytest-xdist>=3",
     "myst-parser>=3",
-    "sphinx-needs>=3",
+    "sphinx-needs>=8",
     "beautifulsoup4>=4.12",
     "lxml>=5",
 ]

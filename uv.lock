@@ -901,7 +901,7 @@ dev = [
     { name = "myst-parser", specifier = ">=3" },
     { name = "pytest", specifier = ">=8" },
     { name = "pytest-xdist", specifier = ">=3" },
-    { name = "sphinx-needs", specifier = ">=3" },
+    { name = "sphinx-needs", specifier = ">=8" },
 ]
 
 [[package]]
