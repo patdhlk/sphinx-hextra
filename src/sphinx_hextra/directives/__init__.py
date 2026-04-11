@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from . import callout
+
 
 def register(app: Any) -> None:
-    """Register all sphinx-hextra directives, nodes, and HTML visitors."""
-    # Concrete registrations added in each directive's task.
+    callout.register(app)
