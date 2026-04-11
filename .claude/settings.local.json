@@ -35,7 +35,9 @@
       "Bash(gh api:*)",
       "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f['type'], f['name']\\) for f in data]\")",
       "Bash(curl -sSL https://raw.githubusercontent.com/useblocks/x-as-code/main/docs/_static/custom.css)",
-      "Bash(open docs/_build/html/sphinx-needs.html)"
+      "Bash(open docs/_build/html/sphinx-needs.html)",
+      "Bash(grep -n \"row-odd\\\\|row-even\" docs/_build/html/_static/*.css)",
+      "Bash(python3:*)"
     ]
   }
 }
