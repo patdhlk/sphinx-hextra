@@ -4,9 +4,10 @@ from __future__ import annotations
 
 from typing import Any
 
-from . import callout, cards
+from . import callout, cards, tabs
 
 
 def register(app: Any) -> None:
     callout.register(app)
     cards.register(app)
+    tabs.register(app)

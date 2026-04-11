@@ -15,6 +15,7 @@ _THEME_PATH = Path(__file__).resolve().parent / "theme"
 def setup(app: Any) -> dict[str, Any]:
     app.add_html_theme("sphinx_hextra", str(_THEME_PATH / "sphinx_hextra"))
     app.add_js_file("theme-toggle.js")
+    app.add_js_file("tabs.js")
     _directives.register(app)
     return {
         "version": __version__,
