@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from . import callout, cards, filetree, steps, tabs
+from . import callout, cards, filetree, landing, steps, tabs
 
 
 def register(app: Any) -> None:
@@ -13,3 +13,4 @@ def register(app: Any) -> None:
     tabs.register(app)
     steps.register(app)
     filetree.register(app)
+    landing.register(app)
