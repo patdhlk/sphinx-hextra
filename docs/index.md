@@ -6,7 +6,7 @@ hide-toc: true
 :title: Build modern websites with Sphinx and reStructuredText
 :tagline: Fast, batteries-included Sphinx theme for creating beautiful documentation sites.
 :cta-text: Get Started
-:cta-link: quickstart.html
+:cta-link: getting-started.html
 ```
 
 ````{hextra-feature-grid}
@@ -35,11 +35,37 @@ Drop a directive, get the Hextra look.
 
 ```{toctree}
 :hidden:
-quickstart
-components/callout
-components/cards
-components/tabs
-components/steps
-components/filetree
-sphinx-needs
+:caption: Getting Started
+getting-started
+```
+
+```{toctree}
+:hidden:
+:caption: Guide
+guide/index
+guide/organize-files
+guide/configuration
+guide/markdown
+guide/syntax-highlighting
+guide/latex
+guide/diagrams
+guide/directives/index
+guide/directives/callout
+guide/directives/cards
+guide/directives/tabs
+guide/directives/steps
+guide/directives/filetree
+guide/directives/landing
+guide/deploy
+```
+
+```{toctree}
+:hidden:
+:caption: Advanced
+advanced/index
+advanced/customization
+advanced/additional-pages
+advanced/multi-language
+advanced/comments
+advanced/sphinx-needs
 ```
