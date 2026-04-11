@@ -31,7 +31,11 @@
       "Bash(git remote:*)",
       "Bash(git push:*)",
       "Bash(open docs/_build/html/index.html)",
-      "Bash(uv add:*)"
+      "Bash(uv add:*)",
+      "Bash(gh api:*)",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); [print\\(f['type'], f['name']\\) for f in data]\")",
+      "Bash(curl -sSL https://raw.githubusercontent.com/useblocks/x-as-code/main/docs/_static/custom.css)",
+      "Bash(open docs/_build/html/sphinx-needs.html)"
     ]
   }
 }

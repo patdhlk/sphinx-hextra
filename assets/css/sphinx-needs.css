@@ -2,29 +2,175 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  table.needs_table,
-  table.NEEDS_TABLE {
-    @apply rounded-lg border overflow-hidden;
-    border-color: var(--hx-border);
+/* ---------------------------------------------------------------------------
+ * sphinx-needs integration stylesheet.
+ *
+ * sphinx-needs 8 renders every need as a <table class="need needs_type_...">
+ * and drives its look via a set of `--sn-color-*` CSS variables (see the
+ * useblocks/x-as-code repo for the canonical list). Instead of fighting its
+ * own rules with specificity, we redefine those variables here to pull from
+ * the sphinx-hextra palette. Dark mode works automatically because html.dark
+ * flips --hx-*.
+ * ------------------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    --sn-color-need-border: var(--hx-border);
+    --sn-color-need-row-border: var(--hx-border);
+    --sn-color-need-bg: color-mix(in srgb, var(--hx-accent) 4%, var(--hx-bg));
+    --sn-color-need-bg-head: color-mix(in srgb, var(--hx-accent) 12%, var(--hx-bg));
+    --sn-color-complete-bg-head: color-mix(in srgb, var(--hx-accent) 12%, var(--hx-bg));
+    --sn-color-complete-bg-foot: color-mix(in srgb, var(--hx-accent) 6%, var(--hx-bg));
+    --sn-color-bg-gray: color-mix(in srgb, var(--hx-fg) 8%, transparent);
+    --sn-color-bg-lightgray: color-mix(in srgb, var(--hx-fg) 4%, transparent);
+    --sn-color-bg-green: #05c46b;
+    --sn-color-bg-red: #ff3f34;
+    --sn-color-bg-yellow: #ffc048;
+    --sn-color-bg-blue: #0fbcf9;
+    --sn-color-datatable-label: var(--hx-muted);
   }
-  table.needs_table th,
-  table.NEEDS_TABLE th {
-    background: color-mix(in srgb, var(--hx-accent) 10%, transparent);
+}
+
+@layer components {
+  /* Need card container. sphinx-needs wraps every need in a
+   * <div class="need_container"> containing a <table class="need ...">. */
+  table.need {
+    @apply rounded-xl border overflow-hidden my-4 w-full;
+    border-color: var(--hx-border);
+    background: var(--sn-color-need-bg);
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  table.need tr,
+  table.need td {
+    background: transparent;
+    border: none;
+  }
+  table.need td {
+    @apply px-5 py-3;
     color: var(--hx-fg);
   }
-  table.needs_table td,
-  table.NEEDS_TABLE td { border-color: var(--hx-border); }
 
-  .need {
-    @apply rounded-lg border px-3 py-2 my-2;
-    border-color: var(--hx-border);
-    background: color-mix(in srgb, var(--hx-accent) 4%, transparent);
+  /* Head row: "Requirement: Title ID" */
+  table.need tr.need.head > td.need.head {
+    background: var(--sn-color-need-bg-head);
+    border-bottom: 1px solid var(--hx-border);
   }
+  table.need .needs_head {
+    @apply text-base font-medium m-0;
+    color: var(--hx-fg);
+  }
+  table.need .needs_type_name {
+    @apply uppercase tracking-wide text-xs font-semibold mr-2;
+    color: var(--hx-muted);
+  }
+  table.need .needs_title {
+    @apply text-base font-semibold;
+    color: var(--hx-fg);
+  }
+  table.need .needs-id a,
+  table.need .needs-id {
+    @apply font-mono text-xs;
+    color: var(--hx-accent);
+    text-decoration: none;
+  }
+  table.need .needs-id a:hover { text-decoration: underline; }
+
+  /* Collapse toggle icons */
+  table.need .needs_collapse svg {
+    stroke: var(--hx-muted);
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+  }
+  table.need .needs_collapse svg:hover { stroke: var(--hx-accent); }
+
+  /* Meta row: status / tags / links */
+  table.need tr.need.meta > td.need.meta { @apply py-2; }
+  table.need .needs_meta {
+    @apply text-sm leading-6;
+    color: var(--hx-fg);
+  }
+  table.need .needs_meta .line {
+    @apply inline-flex items-center gap-2 mr-4;
+  }
+  table.need .needs_meta strong { color: var(--hx-muted); font-weight: 600; }
+  table.need .needs_meta a {
+    color: var(--hx-accent);
+    text-decoration: none;
+  }
+  table.need .needs_meta a:hover { text-decoration: underline; }
+
+  /* Content row */
+  table.need tr.need.content > td.need.content { color: var(--hx-fg); }
+  table.need tr.need.content p {
+    @apply my-2 leading-7;
+    color: var(--hx-fg);
+  }
+  table.need tr.need.content code {
+    @apply rounded px-1 py-0.5 text-sm font-mono;
+    background: color-mix(in srgb, var(--hx-accent) 12%, transparent);
+    color: var(--hx-fg);
+  }
+
+  /* Status / type pill badges */
   .needs_status,
   .needs_type {
-    @apply inline-block rounded-full px-2 py-0.5 text-xs font-medium;
-    background: var(--hx-accent);
-    color: white;
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    background: color-mix(in srgb, var(--hx-accent) 18%, transparent);
+    color: var(--hx-fg);
+    border: 1px solid color-mix(in srgb, var(--hx-accent) 30%, transparent);
+  }
+
+  /* Per-type accent color — left border stripe differentiates req/spec/test/impl */
+  table.need.needs_type_req    { border-left: 4px solid #60a5fa; }
+  table.need.needs_type_spec   { border-left: 4px solid #f472b6; }
+  table.need.needs_type_test   { border-left: 4px solid #fbbf24; }
+  table.need.needs_type_impl   { border-left: 4px solid #34d399; }
+
+  /* needtable: traceability overview table */
+  table.need_table,
+  table.needs_table,
+  table.NEEDS_TABLE {
+    @apply rounded-xl border overflow-hidden my-6 w-full;
+    border-color: var(--hx-border);
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  table.need_table th,
+  table.needs_table th,
+  table.NEEDS_TABLE th {
+    @apply px-4 py-2 text-left text-xs uppercase tracking-wide font-semibold;
+    background: color-mix(in srgb, var(--hx-accent) 12%, transparent);
+    color: var(--hx-fg);
+    border-bottom: 1px solid var(--hx-border);
+  }
+  table.need_table td,
+  table.needs_table td,
+  table.NEEDS_TABLE td {
+    @apply px-4 py-2 text-sm;
+    color: var(--hx-fg);
+    border-top: 1px solid var(--hx-border);
+  }
+  table.need_table tr:first-child td,
+  table.needs_table tr:first-child td,
+  table.NEEDS_TABLE tr:first-child td { border-top: none; }
+  table.need_table a,
+  table.needs_table a,
+  table.NEEDS_TABLE a {
+    color: var(--hx-accent);
+    text-decoration: none;
+  }
+  table.need_table a:hover,
+  table.needs_table a:hover,
+  table.NEEDS_TABLE a:hover { text-decoration: underline; }
+
+  /* Datatable filter controls */
+  .needs_datatables_wrapper .dataTables_filter input,
+  .needs_datatables_wrapper .dataTables_length select {
+    @apply rounded-md border px-2 py-1;
+    background: var(--hx-bg);
+    color: var(--hx-fg);
+    border-color: var(--hx-border);
   }
 }
