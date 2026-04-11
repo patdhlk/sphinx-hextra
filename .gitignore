@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+
+# Node
+node_modules/
+
+# Sphinx build output
+_build/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+
+# uv
+.python-version.local
