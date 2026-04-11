@@ -1,0 +1,9 @@
+@layer components {
+  .hx-filetree, .hx-filetree__children {
+    @apply list-none pl-4 font-mono text-sm;
+  }
+  .hx-filetree { @apply pl-0 my-4; }
+  .hx-filetree__folder, .hx-filetree__file { @apply py-0.5; }
+  .hx-filetree__folder > .hx-filetree__name::before { content: "▸ "; }
+  .hx-filetree__file   > .hx-filetree__name::before { content: "· "; opacity: 0.5; }
+}

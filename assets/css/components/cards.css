@@ -1,0 +1,16 @@
+@layer components {
+  .hx-cards { @apply grid gap-4 my-6; }
+  .hx-cards--cols-1 { @apply grid-cols-1; }
+  .hx-cards--cols-2 { @apply grid-cols-1 md:grid-cols-2; }
+  .hx-cards--cols-3 { @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3; }
+  .hx-cards--cols-4 { @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-4; }
+  .hx-cards__item {
+    @apply block rounded-lg border p-4 transition hover:shadow-md no-underline;
+    border-color: var(--hx-border);
+    color: var(--hx-fg);
+  }
+  .hx-cards__item:hover { border-color: var(--hx-accent); }
+  .hx-cards__header { @apply flex items-center gap-2 mb-2; }
+  .hx-cards__title  { @apply font-semibold; }
+  .hx-cards__body   { @apply text-sm opacity-80; }
+}

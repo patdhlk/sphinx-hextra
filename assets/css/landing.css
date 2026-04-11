@@ -1,0 +1,22 @@
+@layer components {
+  .hx-hero {
+    @apply py-20 text-center;
+    background: radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--hx-accent) 15%, transparent), transparent);
+  }
+  .hx-hero__title   { @apply text-5xl font-bold mb-4; }
+  .hx-hero__tagline { @apply text-xl opacity-80 mb-8; }
+  .hx-hero__cta {
+    @apply inline-block px-6 py-3 rounded-lg font-medium text-white no-underline;
+    background: var(--hx-accent);
+  }
+
+  .hx-feature-grid { @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10; }
+  .hx-feature {
+    @apply rounded-xl border p-6 block no-underline;
+    border-color: var(--hx-border);
+    color: var(--hx-fg);
+  }
+  .hx-feature__title    { @apply text-xl font-semibold mb-2 mt-0; }
+  .hx-feature__subtitle { @apply text-sm opacity-70 mb-4; }
+  .hx-feature__image    { @apply w-full rounded-lg mb-4; }
+}

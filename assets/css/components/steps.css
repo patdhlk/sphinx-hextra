@@ -1,0 +1,16 @@
+@layer components {
+  .hx-steps { @apply relative my-6 pl-6 list-none; counter-reset: step; }
+  .hx-steps::before {
+    content: "";
+    @apply absolute left-2 top-2 bottom-2 w-px;
+    background: var(--hx-border);
+  }
+  .hx-steps__item { @apply relative pl-4 pb-6; counter-increment: step; }
+  .hx-steps__marker {
+    @apply absolute -left-0.5 top-0 flex h-5 w-5 items-center justify-center rounded-full text-xs text-white;
+    background: var(--hx-accent);
+  }
+  .hx-steps__marker::before { content: counter(step); }
+  .hx-steps__title { @apply font-semibold text-base m-0; }
+  .hx-steps__body  { @apply mt-1; }
+}

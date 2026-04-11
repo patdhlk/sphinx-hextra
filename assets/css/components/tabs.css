@@ -1,0 +1,14 @@
+@layer components {
+  .hx-tabs { @apply my-4; }
+  .hx-tabs__labels { @apply flex gap-2 border-b; border-color: var(--hx-border); }
+  .hx-tabs__label {
+    @apply px-4 py-2 border-b-2 border-transparent font-medium opacity-70 hover:opacity-100;
+  }
+  .hx-tabs__label--active {
+    @apply opacity-100;
+    border-color: var(--hx-accent);
+  }
+  .hx-tabs__panels { @apply pt-4; }
+  .hx-tabs__panel { display: none; }
+  .hx-tabs__panel--active { display: block; }
+}

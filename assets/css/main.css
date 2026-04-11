@@ -25,3 +25,110 @@
     font-family: theme("fontFamily.sans");
   }
 }
+
+/* Components are maintained as separate source files under ./components/
+ * and ./landing.css. They are inlined here because the standalone Tailwind
+ * CLI does not resolve @import statements without postcss-import configured.
+ * Keep the inlined blocks in sync with the source files. */
+
+/* components/callout.css */
+@layer components {
+  .hx-callout {
+    @apply flex gap-3 rounded-lg border p-4 my-4;
+    border-color: var(--hx-border);
+    background: color-mix(in srgb, var(--hx-accent) 6%, transparent);
+  }
+  .hx-callout__icon { @apply flex-shrink-0 text-xl leading-none; }
+  .hx-callout__body { @apply flex-1; }
+  .hx-callout--info    { border-left: 4px solid #3b82f6; }
+  .hx-callout--warning { border-left: 4px solid #f59e0b; }
+  .hx-callout--error   { border-left: 4px solid #ef4444; }
+  .hx-callout--default { border-left: 4px solid var(--hx-muted); }
+}
+
+/* components/cards.css */
+@layer components {
+  .hx-cards { @apply grid gap-4 my-6; }
+  .hx-cards--cols-1 { @apply grid-cols-1; }
+  .hx-cards--cols-2 { @apply grid-cols-1 md:grid-cols-2; }
+  .hx-cards--cols-3 { @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3; }
+  .hx-cards--cols-4 { @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-4; }
+  .hx-cards__item {
+    @apply block rounded-lg border p-4 transition hover:shadow-md no-underline;
+    border-color: var(--hx-border);
+    color: var(--hx-fg);
+  }
+  .hx-cards__item:hover { border-color: var(--hx-accent); }
+  .hx-cards__header { @apply flex items-center gap-2 mb-2; }
+  .hx-cards__title  { @apply font-semibold; }
+  .hx-cards__body   { @apply text-sm opacity-80; }
+}
+
+/* components/tabs.css */
+@layer components {
+  .hx-tabs { @apply my-4; }
+  .hx-tabs__labels { @apply flex gap-2 border-b; border-color: var(--hx-border); }
+  .hx-tabs__label {
+    @apply px-4 py-2 border-b-2 border-transparent font-medium opacity-70 hover:opacity-100;
+  }
+  .hx-tabs__label--active {
+    @apply opacity-100;
+    border-color: var(--hx-accent);
+  }
+  .hx-tabs__panels { @apply pt-4; }
+  .hx-tabs__panel { display: none; }
+  .hx-tabs__panel--active { display: block; }
+}
+
+/* components/steps.css */
+@layer components {
+  .hx-steps { @apply relative my-6 pl-6 list-none; counter-reset: step; }
+  .hx-steps::before {
+    content: "";
+    @apply absolute left-2 top-2 bottom-2 w-px;
+    background: var(--hx-border);
+  }
+  .hx-steps__item { @apply relative pl-4 pb-6; counter-increment: step; }
+  .hx-steps__marker {
+    @apply absolute -left-0.5 top-0 flex h-5 w-5 items-center justify-center rounded-full text-xs text-white;
+    background: var(--hx-accent);
+  }
+  .hx-steps__marker::before { content: counter(step); }
+  .hx-steps__title { @apply font-semibold text-base m-0; }
+  .hx-steps__body  { @apply mt-1; }
+}
+
+/* components/filetree.css */
+@layer components {
+  .hx-filetree, .hx-filetree__children {
+    @apply list-none pl-4 font-mono text-sm;
+  }
+  .hx-filetree { @apply pl-0 my-4; }
+  .hx-filetree__folder, .hx-filetree__file { @apply py-0.5; }
+  .hx-filetree__folder > .hx-filetree__name::before { content: "▸ "; }
+  .hx-filetree__file   > .hx-filetree__name::before { content: "· "; opacity: 0.5; }
+}
+
+/* landing.css */
+@layer components {
+  .hx-hero {
+    @apply py-20 text-center;
+    background: radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--hx-accent) 15%, transparent), transparent);
+  }
+  .hx-hero__title   { @apply text-5xl font-bold mb-4; }
+  .hx-hero__tagline { @apply text-xl opacity-80 mb-8; }
+  .hx-hero__cta {
+    @apply inline-block px-6 py-3 rounded-lg font-medium text-white no-underline;
+    background: var(--hx-accent);
+  }
+
+  .hx-feature-grid { @apply grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10; }
+  .hx-feature {
+    @apply rounded-xl border p-6 block no-underline;
+    border-color: var(--hx-border);
+    color: var(--hx-fg);
+  }
+  .hx-feature__title    { @apply text-xl font-semibold mb-2 mt-0; }
+  .hx-feature__subtitle { @apply text-sm opacity-70 mb-4; }
+  .hx-feature__image    { @apply w-full rounded-lg mb-4; }
+}

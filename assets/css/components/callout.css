@@ -1,0 +1,13 @@
+@layer components {
+  .hx-callout {
+    @apply flex gap-3 rounded-lg border p-4 my-4;
+    border-color: var(--hx-border);
+    background: color-mix(in srgb, var(--hx-accent) 6%, transparent);
+  }
+  .hx-callout__icon { @apply flex-shrink-0 text-xl leading-none; }
+  .hx-callout__body { @apply flex-1; }
+  .hx-callout--info    { border-left: 4px solid #3b82f6; }
+  .hx-callout--warning { border-left: 4px solid #f59e0b; }
+  .hx-callout--error   { border-left: 4px solid #ef4444; }
+  .hx-callout--default { border-left: 4px solid var(--hx-muted); }
+}
