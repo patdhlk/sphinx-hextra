@@ -17,5 +17,6 @@ _build/
 .vscode/
 .DS_Store
 
-# uv
-.python-version.local
+# Claude Code
+.claude/
+
