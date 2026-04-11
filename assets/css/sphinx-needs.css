@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  table.needs_table,
+  table.NEEDS_TABLE {
+    @apply rounded-lg border overflow-hidden;
+    border-color: var(--hx-border);
+  }
+  table.needs_table th,
+  table.NEEDS_TABLE th {
+    background: color-mix(in srgb, var(--hx-accent) 10%, transparent);
+    color: var(--hx-fg);
+  }
+  table.needs_table td,
+  table.NEEDS_TABLE td { border-color: var(--hx-border); }
+
+  .need {
+    @apply rounded-lg border px-3 py-2 my-2;
+    border-color: var(--hx-border);
+    background: color-mix(in srgb, var(--hx-accent) 4%, transparent);
+  }
+  .needs_status,
+  .needs_type {
+    @apply inline-block rounded-full px-2 py-0.5 text-xs font-medium;
+    background: var(--hx-accent);
+    color: white;
+  }
+}

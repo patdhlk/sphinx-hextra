@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from . import directives as _directives
+from . import needs_integration as _needs_integration
 
 __version__ = "0.1.0.dev0"
 
@@ -17,6 +18,7 @@ def setup(app: Any) -> dict[str, Any]:
     app.add_js_file("theme-toggle.js")
     app.add_js_file("tabs.js")
     _directives.register(app)
+    _needs_integration.register(app)
     return {
         "version": __version__,
         "parallel_read_safe": True,
