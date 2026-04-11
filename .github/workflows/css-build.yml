@@ -1,0 +1,29 @@
+name: CSS freshness
+
+on:
+  pull_request:
+    paths:
+      - "assets/**"
+      - "tailwind.config.js"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build:css
+      - name: Fail if compiled CSS is stale
+        run: |
+          if ! git diff --quiet src/sphinx_hextra/theme/sphinx_hextra/static/sphinx-hextra.css \
+                                src/sphinx_hextra/theme/sphinx_hextra/static/sphinx-hextra-needs.css; then
+            echo "::error::Compiled CSS is stale. Run 'npm run build:css' locally and commit the result."
+            git diff --stat src/sphinx_hextra/theme/sphinx_hextra/static/
+            exit 1
+          fi
