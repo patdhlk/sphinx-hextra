@@ -167,4 +167,17 @@
   .hx-content .hx-hero {
     @apply -mx-6 rounded-xl;
   }
+  .hx-content .hx-hero__cta,
+  .hx-content .hx-hero__cta:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .hx-content .hx-feature,
+  .hx-content .hx-feature:hover {
+    text-decoration: none;
+  }
+  .hx-content .hx-cards__item,
+  .hx-content .hx-cards__item:hover {
+    text-decoration: none;
+  }
 }
