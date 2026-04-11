@@ -207,8 +207,6 @@ Quick intro to the project.
 
 ```markdown
 ```{hextra-tabs}
-:items: macOS, Linux, Windows
-
 ### macOS
 Apple's desktop OS.
 
@@ -220,8 +218,8 @@ Microsoft's OS.
 ```
 ```
 
-- Option `:items:` — comma-separated tab labels.
-- Tab bodies delimited by H3 headings inside the directive. Heading text must match `items` labels in order.
+- Tab labels and bodies are delimited by H3 headings inside the directive. The H3 text is the tab label; everything until the next H3 (or the end of the directive) is the tab body.
+- No `:items:` option — a single source of truth avoids label/body drift.
 - Active tab state persisted per-page in `sessionStorage`.
 
 ### 5.4 `hextra-steps`
