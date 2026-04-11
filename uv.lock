@@ -887,6 +887,20 @@ dev = [
     { name = "pytest-xdist" },
     { name = "sphinx-needs" },
 ]
+docs = [
+    { name = "myst-parser", version = "4.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "myst-parser", version = "5.0.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "sphinx-needs" },
+]
+test = [
+    { name = "beautifulsoup4" },
+    { name = "lxml" },
+    { name = "myst-parser", version = "4.0.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
+    { name = "myst-parser", version = "5.0.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "pytest" },
+    { name = "pytest-xdist" },
+    { name = "sphinx-needs" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -896,6 +910,18 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "beautifulsoup4", specifier = ">=4.12" },
+    { name = "lxml", specifier = ">=5" },
+    { name = "myst-parser", specifier = ">=3" },
+    { name = "pytest", specifier = ">=8" },
+    { name = "pytest-xdist", specifier = ">=3" },
+    { name = "sphinx-needs", specifier = ">=8" },
+]
+docs = [
+    { name = "myst-parser", specifier = ">=3" },
+    { name = "sphinx-needs", specifier = ">=8" },
+]
+test = [
     { name = "beautifulsoup4", specifier = ">=4.12" },
     { name = "lxml", specifier = ">=5" },
     { name = "myst-parser", specifier = ">=3" },

@@ -14,6 +14,16 @@ If you plan to touch CSS or JS:
 npm install
 ```
 
+### Dependency groups
+
+`sphinx-hextra` itself depends only on `sphinx` and `docutils`. Everything else is a maintainer concern and lives in PEP 735 dependency groups under `[dependency-groups]` in `pyproject.toml`:
+
+- **`docs`** — `myst-parser`, `sphinx-needs`. Everything needed to build the demo site under `docs/`. sphinx-needs is *not* a runtime dependency of the package; our `needs_integration.py` only activates if the user already has sphinx-needs loaded.
+- **`test`** — `pytest`, `pytest-xdist`, `beautifulsoup4`, `lxml`, plus everything from `docs` (because `tests/integration/test_needs_integration.py` exercises a real sphinx-needs build).
+- **`dev`** — alias for `test`. One-shot group for contributors.
+
+CI uses the narrowest group it needs: `ci.yml` installs `--group test`, `docs-deploy.yml` installs `--group docs`.
+
 ## Running the test suite
 
 ```bash

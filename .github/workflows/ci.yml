@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python
         run: uv python install ${{ matrix.python }}
       - name: Sync dependencies
-        run: uv sync --group dev
+        run: uv sync --group test
       - name: Pin Sphinx version
         run: uv pip install "sphinx==${{ matrix.sphinx }}"
       - name: Run tests

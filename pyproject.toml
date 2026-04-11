@@ -33,13 +33,30 @@ Issues = "https://github.com/patdhlk/sphinx-hextra/issues"
 sphinx_hextra = "sphinx_hextra"
 
 [dependency-groups]
-dev = [
-    "pytest>=8",
-    "pytest-xdist>=3",
+# `docs` is everything needed to build the demo site under docs/.
+# sphinx-needs is NOT a runtime dependency of the sphinx-hextra package —
+# `src/sphinx_hextra/needs_integration.py` only activates if sphinx_needs is
+# already loaded as a Sphinx extension by the user. It lives here because
+# our own demo site uses it to showcase the integration.
+docs = [
     "myst-parser>=3",
     "sphinx-needs>=8",
+]
+
+# `test` adds the test runner and HTML-parsing helpers. It pulls in `docs`
+# so `tests/integration/test_needs_integration.py` can build a Sphinx
+# project that uses sphinx-needs.
+test = [
+    "pytest>=8",
+    "pytest-xdist>=3",
     "beautifulsoup4>=4.12",
     "lxml>=5",
+    {include-group = "docs"},
+]
+
+# `dev` is the one-shot group for contributors — tests + docs in one go.
+dev = [
+    {include-group = "test"},
 ]
 
 [build-system]
