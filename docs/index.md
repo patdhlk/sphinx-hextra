@@ -3,8 +3,8 @@ hide-toc: true
 ---
 
 ```{hextra-hero}
-:title: sphinx-hextra
-:tagline: The Hextra aesthetic, on Sphinx.
+:title: Build modern websites with Sphinx and reStructuredText
+:tagline: Fast, batteries-included Sphinx theme for creating beautiful documentation sites.
 :cta-text: Get Started
 :cta-link: quickstart.html
 ```
