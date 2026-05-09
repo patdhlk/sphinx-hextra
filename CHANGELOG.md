@@ -6,6 +6,8 @@ and [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-05-09
+
 ### Added
 - Initial release: Hextra-inspired Sphinx theme.
 - Directives: `hextra-callout`, `hextra-cards`, `hextra-card`, `hextra-tabs`,
