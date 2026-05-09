@@ -13,6 +13,7 @@ classifiers = [
     "Framework :: Sphinx :: Theme",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -26,8 +27,10 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/patdhlk/sphinx-hextra"
+Documentation = "https://patdhlk.com/sphinx-hextra/"
 Repository = "https://github.com/patdhlk/sphinx-hextra"
 Issues = "https://github.com/patdhlk/sphinx-hextra/issues"
+Changelog = "https://github.com/patdhlk/sphinx-hextra/blob/main/CHANGELOG.md"
 
 [project.entry-points."sphinx.html_themes"]
 sphinx_hextra = "sphinx_hextra"
@@ -66,7 +69,7 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/sphinx_hextra"]
 
-[tool.hatch.build]
+[tool.hatch.build.targets.sdist]
 exclude = [
     "assets/",
     "package.json",
@@ -75,6 +78,13 @@ exclude = [
     "node_modules/",
     "tests/",
     "docs/",
+    ".claude/",
+    ".github/",
+    ".pytest_cache/",
+    ".venv/",
+    ".python-version",
+    "dist/",
+    "uv.lock",
 ]
 
 [tool.pytest.ini_options]
