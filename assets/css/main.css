@@ -24,6 +24,30 @@
     color: var(--hx-fg);
     font-family: theme("fontFamily.sans");
   }
+
+  html {
+    scrollbar-color: color-mix(in srgb, var(--hx-fg) 30%, transparent) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--hx-fg) 25%, transparent);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--hx-fg) 45%, transparent);
+    background-clip: padding-box;
+  }
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
 
 /* Components are maintained as separate source files under ./components/,
