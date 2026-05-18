@@ -8,7 +8,10 @@ from typing import Any
 from . import directives as _directives
 from . import needs_integration as _needs_integration
 
-__version__ = "0.1.0.dev0"
+try:
+    from ._version import __version__
+except ImportError:
+    __version__ = "0.0.0+unknown"
 
 _THEME_PATH = Path(__file__).resolve().parent / "theme"
 
