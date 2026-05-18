@@ -6,6 +6,11 @@ and [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-05-18
+
+### Fixed
+- Sidebar scrollbar now follows dark/light theme (Firefox + WebKit).
+
 ## [0.1.0] - 2026-05-09
 
 ### Added

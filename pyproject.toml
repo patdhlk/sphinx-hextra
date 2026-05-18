@@ -1,6 +1,6 @@
 [project]
 name = "sphinx-hextra"
-version = "0.1.0.dev0"
+version = "0.1.1"
 description = "A Sphinx theme and directive set bringing the Hextra aesthetic to Sphinx, with sphinx-needs integration."
 readme = "README.md"
 license = { text = "MIT" }
